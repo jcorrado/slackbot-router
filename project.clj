@@ -1,4 +1,4 @@
-(defproject org.clojars.jereme/slackbot-router "0.1.0"
+(defproject jcorrado/slackbot-router "0.1.0"
   :description "Slackbot request routing framework"
   :url "https://github.com/jcorrado/slackbot-router"
   :license {:name "Eclipse Public License"
