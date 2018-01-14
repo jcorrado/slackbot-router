@@ -4,8 +4,7 @@ Slackbot request routing framework
 
 Current version:
 
-[![Clojars Project](https://img.shields.io/clojars/v/org.clojars.jereme/slackbot-router.svg)](https://clojars.org/org.clojars.jereme/slackbot-router)
-
+[![Clojars Project](https://img.shields.io/clojars/v/jcorrado/slackbot-router.svg)](https://clojars.org/jcorrado/slackbot-router)
 ## License
 
 Copyright © 2018
