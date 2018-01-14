@@ -4,7 +4,7 @@
 
 (s/check-asserts true)
 
-;; This Spec is imperfect but effective
+;; This spec is imperfect but effective
 (s/def ::type string?)
 (s/def ::challenge (s/and string? #(not (empty? %))))
 (s/def ::channel (s/and string? #(not (empty? %))))
@@ -14,7 +14,7 @@
 (s/def ::url_verification (s/keys :req-un [::type ::challenge]))
 (s/def ::message (s/keys :req-un [::type ::channel ::user ::text]))
 
-;; TODO - Now that we're using Spec, these feel redundant.
+;; Now that we're using spec, these feel redundant
 (defn- verification-event?
   "Is event a Slack verification challenge?"
   [ev]

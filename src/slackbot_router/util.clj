@@ -1,6 +1,4 @@
-(ns slackbot-router.util
-  (:require [clojure.string :as str]
-            [clojure.java.io :as io]))
+(ns slackbot-router.util)
 
 (defn resolve-test-fn
   [test-arg]
