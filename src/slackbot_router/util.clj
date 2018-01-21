@@ -12,7 +12,7 @@
   [to-match reply]
   `[(fn [msg#]
       (if ((resolve-test-fn ~to-match) (:text msg#))
-         true))
+        true))
     (fn [_#]
       (if (map? ~reply)
         ~reply
