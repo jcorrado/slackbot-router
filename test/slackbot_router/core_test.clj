@@ -35,7 +35,6 @@
 
 (def root-table table-0)
 
-
 ;;
 ;; tests
 ;;
@@ -44,7 +43,6 @@
     (let [table           [[:a] [[:b] [:c]] [[:d] [[:e] [:f]]] [[:g]]]
           flattened-table [[:a]  [:b] [:c]   [:d]  [:e] [:f]    [:g]]]
       (is (= (flatten-routing-table table) flattened-table)))))
-
 
 ;; root table
 (deftest test-root-table-matches
@@ -65,15 +63,14 @@
   (testing "A match in a nested subtable"
     (let [msg {:text "table-0-0-test-0"}]
       (is (= (route-message root-table msg) msg))))
-  
+
   (testing "A match in a nested subtable"
     (let [msg {:text "table-0-0-test-1"}]
       (is (= (route-message root-table msg) msg))))
 
   (testing "A match in a nested subtable, two deep"
     (let [msg {:text "table-0-0-0-test-0"}]
-      (is (= (route-message root-table msg) msg))))
-  )
+      (is (= (route-message root-table msg) msg)))))
 
 ;; macros
 (deftest test-text-match-macro
