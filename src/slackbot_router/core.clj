@@ -51,6 +51,21 @@
             event-table)
       "OK"))
 
+(defn- is-table?
+  [v]
+  (and (> (count v) 0)
+       (vector? (v 0))))
+
+(defn flatten-routing-table
+  "Flatten nested routing tables into a sinle vec."
+  [table]
+  (loop [[head & tail] table accum []]
+    (if (nil? head)
+      accum
+      (if (is-table? head)
+        (recur tail (into accum (flatten-routing-table head)))
+        (recur tail (conj accum head))))))
+
 (defn route-message
   "Route incoming Slack Message, returning a reply message string or
   nil."
@@ -58,4 +73,4 @@
   (some (fn [[test-fn reply-fn]]
           (if-let [matching-msg (test-fn msg)]
             (reply-fn matching-msg)))
-        table))
+        (flatten-routing-table table)))
