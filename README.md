@@ -59,15 +59,16 @@ A simple `mybot.handler` fragment with the basic idea.
 ```
 
 ### Routing Table Design
-A table consists of two-element vectors.  The first element is a test function, to which the message is passed.  If that test returns anything truthy, that returned value is passed to the  second element: the reply-generating function.  A typical design would likely have that reply, in turn, posted to Slack, but that's outside of the domain of `slackbot-router`.
+A table consists of two-element vectors.  The first element is a test function, to which the message is passed.  If that test returns anything truthy, that returned value is passed to the  second element: the reply-generating function.  A typical design would have that reply, in turn, posted to Slack.  However that's outside of the domain of `slackbot-router`.
 
+Here is a very simple table, with a single route.
 ```clojure
 (def basic-table
-  [(fn [msg] (= msg "!ping"))
+  [(fn [msg] (= (:text msg) "!ping"))
    (fn [_] "!pong")])
 ```
 
-This simple _test-text/reply-text_ pattern is common enough to warrant a macro, which also support regular expressions.
+This simple _test-text/reply-text_ pattern is common enough to warrant a macro, which also supports a regular expression.
 
 ```clojure
 (def basic-table
