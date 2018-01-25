@@ -83,7 +83,7 @@ The return of a successful test is passed to the associated reply generating fun
   [(text-match "Who is Boromir?" "High Warden of the White Tower")
 
    [(fn [msg]
-      (if-let [[_ deed] (re-matches #"(?i)!boromir\s+(.+)\s*" (:text msg))]
+      (if-let [[_ deed] (re-matches #"(?i)!boromir\s+(.+?)\s*$" (:text msg))]
         deed))
     (fn [deed]
       (format "*One does not simply %s*" deed))]])]
